@@ -4,15 +4,15 @@ metadata:
   name: {{ include "efk-yq.fullname" . }}
   namespace: {{  .Values.namespace }}
   labels:
-    {{- .Values.labels}}}
+    {{- .Values.labels }}
 spec:
   selector:
     matchLabels:
-      {{- .Values.labels}}}
+      {{- .Values.labels }}
   template:
     metadata:
       labels:
-        {{- .Values.labels}}}
+        {{- .Values.labels }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
