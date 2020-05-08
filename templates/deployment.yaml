@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "efk-yq.fullname" . }}
-  namespace: {{ include "efk-yq.namespace"}}
+  namespace: {{ include "efk-yq.namespace" .}}
   labels:
     {{- include "efk-yq.labels" . | nindent 4 }}
 spec:
