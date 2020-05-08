@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "efk-yq.fullname" . }}
-  namespace: {{  .Values.namespace }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app: {{- .Values.appLabels }}
+    {{ .Values.labels }}
 spec:
   selector:
     matchLabels:
-      app: {{- .Values.appLabels }}
+      {{ .Values.labels }}
   template:
     metadata:
       labels:
-        app: {{- .Values.appLabels }}
+        {{ .Values.labels }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

@@ -10,7 +10,13 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
-appLabels: "elasticsearch"
+labels: {
+  app: "elasticsearch"
+}
+
+selectorLabels: {
+  app: "elasticsearch"
+}
 
 namespace: "efk"
 
