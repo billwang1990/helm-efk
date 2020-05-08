@@ -17,6 +17,7 @@ labels: {
 selectorLabels: {
   app: "elasticsearch"
 }
+
 namespace: "efk"
 
 imagePullSecrets: []

@@ -2,24 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "efk-yq.fullname" . }}
-  namespace: {{ include "efk-yq.namespace" .}}
+  namespace: {{  .Values.namespace }}
   labels:
-    {{- include "efk-yq.labels" . | nindent 4 }}
+    {{- .Values.labels}}}
 spec:
-{{- if not .Values.autoscaling.enabled }}
-  replicas: {{ .Values.replicaCount }}
-{{- end }}
   selector:
     matchLabels:
-      {{- include "efk-yq.selectorLabels" . | nindent 6 }}
+      {{- .Values.labels}}}
   template:
     metadata:
-    {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-    {{- end }}
       labels:
-        {{- include "efk-yq.selectorLabels" . | nindent 8 }}
+        {{- .Values.labels}}}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
