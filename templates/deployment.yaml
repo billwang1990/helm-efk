@@ -4,11 +4,11 @@ metadata:
   name: {{ include "efk-yq.fullname" . }}
   namespace: {{ .Values.namespace }}
   labels:
-    {{ .Values.labels }}
+    {{toYaml .Values.labels }}
 spec:
   selector:
     matchLabels:
-      {{ .Values.labels }}
+      {{toYaml .Values.labels }}
   template:
     metadata:
       labels:
