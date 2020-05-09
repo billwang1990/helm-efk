@@ -59,6 +59,13 @@ spec:
               value: "-Xms512m -Xmx512m"
             - name: network.host
               value: "0.0.0.0"
+          volumeMounts:
+            - name: es-persistent-storage
+              mountPath: /usr/share/elasticsearch/data
+      volumes:
+        - name: es-persistent-storage
+          persistentVolumeClaim:
+          claimName: es-persistent-storage-claim
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -18,6 +18,8 @@ selectorLabels: {
   app: "elasticsearch"
 }
 
+storageClassName: "local-volume"
+
 namespace: "efk"
 
 imagePullSecrets: []
