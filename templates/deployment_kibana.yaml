@@ -21,7 +21,7 @@ spec:
       securityContext:
       {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-      - name: "kibana-container-"
+      - name: "kibana-container"
         securityContext:
           {{- toYaml .Values.securityContext | nindent 12 }}
         image: "{{ .Values.image.kibanaRepository }}:{{ .Values.image.kibanaTag }}"
