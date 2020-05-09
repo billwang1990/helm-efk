@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: es-persistent-storage-claim
+  namespace: {{ .Values.namespace }}
 spec:
   accessModes:
     - ReadWriteOnce
