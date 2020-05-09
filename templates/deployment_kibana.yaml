@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kibana
+  name: "kibana"
   namespace: {{ .Values.namespace }}
   labels:
-    app: kibana
+    app: "kibana"
 spec:
   selector:
     matchLabels:
-      app: kibana
+      app: "kibana"
   template:
     metadata:
       labels:
-        app: kibana
+        app: "kibana"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -21,7 +21,7 @@ spec:
       securityContext:
       {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}
+        - name: "kibana_container_yq"
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.kibanaRepository }}:{{ .Values.image.kibanaTag }}"
