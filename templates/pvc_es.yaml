@@ -1,7 +1,7 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: PersistentVolumeClaim
 metadata:
-  name: es-persistent-storage
+  name: es-persistent-storage-claim
 spec:
   accessModes:
     - ReadWriteOnce
