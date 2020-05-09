@@ -32,7 +32,7 @@ spec:
           securityContext:
             privileged: true
       containers:
-        - name: {{ .Chart.Name }}
+        - name: 'elasticsearch-container'
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.esRepository }}:{{ .Values.image.esTag }}"
