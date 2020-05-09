@@ -50,9 +50,7 @@ spec:
             - name: cluster.name
               value: k8s-logs
             - name: node.name
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
+              value: "elasticsearch"
             - name: cluster.initial_master_nodes
               value: "elasticsearch"
             - name:  discovery.seed_hosts
