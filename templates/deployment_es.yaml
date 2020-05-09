@@ -65,7 +65,7 @@ spec:
       volumes:
         - name: es-persistent-storage
           persistentVolumeClaim:
-          claimName: es-persistent-storage-claim
+            claimName: es-persistent-storage-claim
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

@@ -5,7 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: {{.Values.storageClassName}}
+  storageClassName: {{ .Values.storageClassName }}
   resources:
     requests:
-      storage: 19Gi
+      storage: {{ .Values.storageLimit }}
