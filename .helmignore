@@ -23,7 +23,6 @@
 .vscode/
 
 test-connection.yaml
-service.yaml
 serviceaccount.yaml
 ingress.yaml
 hpa.yaml

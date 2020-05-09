@@ -5,14 +5,13 @@
 replicaCount: 1
 
 image:
-  repository: docker.elastic.co/elasticsearch/elasticsearch
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "7.6.2"
+  
+  esRepository: docker.elastic.co/elasticsearch/elasticsearch
+  esTag: "7.6.2"
 
-labels: {
-  app: "elasticsearch"
-}
+  kibanaRepository: docker.elastic.co/kibana/kibana
+  kibanaTag: "7.6.2"
 
 selectorLabels: {
   app: "elasticsearch"
@@ -48,7 +47,7 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
-service:
+esService:
   type: ClusterIP
   port: 80
 

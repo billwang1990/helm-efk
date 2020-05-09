@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: kibana
+spec:
+  selector:
+    matchLabels:
+        app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+      {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.kibanaRepository }}:{{ .Values.image.kibanaTag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: ELASTICSEARCH_HOSTS
+              value: "http://elasticsearch-svc.{{.Values.namespace}}"
+            ports:
+            - containerPort: 5601

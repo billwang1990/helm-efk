@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "efk-yq.fullname" . }}
+  name: "elasticsearch"
   namespace: {{ .Values.namespace }}
   labels:
-    {{toYaml .Values.labels }}
+    app: "elasticsearch"
 spec:
   selector:
     matchLabels:
-      {{toYaml .Values.labels }}
+      app: "elasticsearch"
   template:
     metadata:
       labels:
-        {{toYaml .Values.labels }}
+        app: "elasticsearch"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
@@ -35,7 +35,7 @@ spec:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.esRepository }}:{{ .Values.image.esTag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: rest

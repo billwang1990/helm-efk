@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "elasticsearch-svc"
+  labels:
+    app: "elasticsearch-svc"
+spec:
+  type: {{ .Values.esService.type }}
+  ports:
+    - port: {{ .Values.esService.port }}
+      targetPort: 9200
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "efk-yq.selectorLabels" . | nindent 4 }}
