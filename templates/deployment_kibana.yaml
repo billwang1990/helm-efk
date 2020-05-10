@@ -31,4 +31,3 @@ spec:
             value: "http://elasticsearch-svc.{{.Values.namespace}}"
         ports:
           - containerPort: 5601
-          protocol: TCP  
