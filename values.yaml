@@ -51,6 +51,10 @@ esService:
   type: ClusterIP
   port: 80
 
+kibanaService:
+  type: ClusterIP
+  port: 80
+
 ingress:
   enabled: false
   annotations: {}

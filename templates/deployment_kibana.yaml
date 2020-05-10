@@ -30,4 +30,5 @@ spec:
           - name: ELASTICSEARCH_HOSTS
             value: "http://elasticsearch-svc.{{.Values.namespace}}"
         ports:
-          - containerPort: 5601  
+          - containerPort: 5601
+          protocol: TCP  
