@@ -39,15 +39,3 @@ spec:
             cpu: 1000m
           requests:
             cpu: 100m
-        livenessProbe:
-          httpGet:
-            path: /api/status
-            port: ui
-          initialDelaySeconds: 5
-          timeoutSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /api/status
-            port: ui
-          initialDelaySeconds: 5
-          timeoutSeconds: 10
