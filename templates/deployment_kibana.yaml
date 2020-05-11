@@ -28,7 +28,7 @@ spec:
         image: "{{ .Values.image.kibanaRepository }}:{{ .Values.image.kibanaTag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
-          - name: ELASTICSEARCH_URL
+          - name: ELASTICSEARCH_HOSTS
             value: "http://elasticsearch-svc.{{.Values.namespace}}"
         ports:
         - containerPort: 5601
