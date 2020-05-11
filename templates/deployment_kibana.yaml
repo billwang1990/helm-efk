@@ -28,7 +28,26 @@ spec:
         image: "{{ .Values.image.kibanaRepository }}:{{ .Values.image.kibanaTag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
-          - name: ELASTICSEARCH_HOSTS
+          - name: ELASTICSEARCH_URL
             value: "http://elasticsearch-svc.{{.Values.namespace}}"
         ports:
-          - containerPort: 5601
+        - containerPort: 5601
+          name: ui
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 1000m
+          requests:
+            cpu: 100m
+        livenessProbe:
+          httpGet:
+            path: /api/status
+            port: ui
+          initialDelaySeconds: 5
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /api/status
+            port: ui
+          initialDelaySeconds: 5
+          timeoutSeconds: 10
