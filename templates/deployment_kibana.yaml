@@ -23,7 +23,8 @@ spec:
       containers:
       - name: "kibana-container"
         securityContext:
-          {{- toYaml .Values.securityContext | nindent 12 }}
+          runAsNonRoot: true
+          runAsUser: 1000
         image: "{{ .Values.image.kibanaRepository }}:{{ .Values.image.kibanaTag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
