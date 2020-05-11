@@ -24,9 +24,9 @@ spec:
         image: "{{ .Values.image.fluentRepository }}:{{ .Values.image.fluentTag }}"
         env:
           - name:  FLUENT_ELASTICSEARCH_HOST
-            value: "elasticsearch-svc.{{.Values.namespace}}.svc.cluster.local"
+            value: "elasticsearch-svc.{{.Values.namespace}}"
           - name:  FLUENT_ELASTICSEARCH_PORT
-            value: "9200"
+            value: "80"
           - name: FLUENT_ELASTICSEARCH_SCHEME
             value: "http"
           - name: FLUENTD_SYSTEMD_CONF
