@@ -13,6 +13,9 @@ image:
   kibanaRepository: docker.elastic.co/kibana/kibana
   kibanaTag: "7.6.2"
 
+  fluentRepository: fluent/fluentd-kubernetes-daemonset
+  fluentTag: "v1.4.2-debian-elasticsearch-1.1"
+
 selectorLabels: {
   app: "elasticsearch"
 }
@@ -94,3 +97,5 @@ tolerations: []
 affinity: {}
 
 storageLimit: 19G
+
+hostDockerRootDir: /mnt/data/var/lib/docker
