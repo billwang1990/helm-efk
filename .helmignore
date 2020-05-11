@@ -23,6 +23,5 @@
 .vscode/
 
 test-connection.yaml
-serviceaccount.yaml
 ingress.yaml
 hpa.yaml
