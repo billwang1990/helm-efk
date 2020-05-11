@@ -30,6 +30,8 @@ spec:
         env:
           - name: ELASTICSEARCH_HOSTS
             value: "http://elasticsearch-svc.{{.Values.namespace}}"
+          - name: SERVER_HOST
+            value: 0.0.0.0
         ports:
         - containerPort: 5601
           name: ui
